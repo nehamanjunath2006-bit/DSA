@@ -34,3 +34,9 @@ class Solution:
 
             if num in seen:
                 return True
+# OPTIMIZED
+class Solution:
+
+    def containsDuplicate(self, nums):
+
+        return len(nums)!=len(set(nums))
