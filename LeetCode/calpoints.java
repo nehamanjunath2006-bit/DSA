@@ -62,3 +62,42 @@ class Solution {
         System.out.println("Total Score = " + result);
     }
 }
+
+#leet code solution
+
+import java.util.Stack;
+class Solution {
+    public int calPoints(String[] operations) {
+        Stack<Integer> st =  new Stack<>();
+        for(int i=0;i<operations.length;i++){
+            String element = operations[i];
+            if((!element.equals("C")) && (!element.equals("D")) && (!element.equals("+"))){
+                st.push(Integer.parseInt(operations[i]));
+            }
+            else if(element.equals("C")){
+                st.pop();
+            }
+            else if(element.equals("D")){
+                int prod;
+                prod = st.peek() * 2;
+                st.push(prod);
+            }
+            else{
+                int last;
+                last = st.peek();
+                st.pop();
+                int selast;
+                selast = st.peek();
+                int add = last + selast;
+                st.push(last);
+                st.push(add);
+            }
+        }
+        int total = 0;
+        while(!st.isEmpty()){
+            total+=st.pop();
+        }
+        return total;
+    }
+}
+
