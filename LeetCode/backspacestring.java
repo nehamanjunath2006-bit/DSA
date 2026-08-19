@@ -41,3 +41,28 @@ class Solution {
         System.out.println("Result: " + result);
     }
 }
+#leet code soltuion
+import java.util.Stack;
+class Solution {
+    public boolean backspaceCompare(String s, String t) {
+        Stack<Character> st = new Stack<>();
+        Stack<Character> st1 = new Stack<>();
+        for(char c : s.toCharArray()){
+            if (c != '#'){
+                st.push(c);
+            }
+            else if(!st.isEmpty()){
+                st.pop();
+            }
+        }
+        for(char c : t.toCharArray()){
+            if (c != '#'){
+                st1.push(c);
+            }
+            else if(!st1.isEmpty()){}
+                st.pop();
+            }
+        }
+            return st.equals(st1);
+    }
+}
