@@ -56,3 +56,48 @@ class MinStack {
         System.out.println("Minimum: " + obj.getMin());
     }
 }
+#leetcode solution
+import java.util.Stack;
+
+class MinStack {
+
+    Stack<Integer> st = new Stack<>();
+    Stack<Integer> minSt = new Stack<>();
+
+    public MinStack() {
+        
+    }
+
+    public void push(int value) {
+
+        // Normal stack
+        st.push(value);
+
+        // Minimum stack
+        if (minSt.isEmpty()) {
+            minSt.push(value);
+        }
+        else if (value <= minSt.peek()) {
+            minSt.push(value);
+        }
+        else {
+            minSt.push(minSt.peek());
+        }
+    }
+
+    public void pop() {
+
+        st.pop();
+        minSt.pop();
+    }
+
+    public int top() {
+
+        return st.peek();
+    }
+
+    public int getMin() {
+
+        return minSt.peek();
+    }
+}
