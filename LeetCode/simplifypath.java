@@ -1,6 +1,7 @@
+
 import java.util.*;
 
-public class simplify {
+public class simplifypath {
 
     public static String simplifyPath(String path) {
 
@@ -16,17 +17,13 @@ public class simplify {
             // Ignore empty parts and "."
             if (part.equals("") || part.equals(".")) {
                 continue;
-            }
-
-            // ".." means go to the parent directory
+            } // ".." means go to the parent directory
             else if (part.equals("..")) {
 
                 if (!st.isEmpty()) {
                     st.pop();
                 }
-            }
-
-            // Normal folder name
+            } // Normal folder name
             else {
                 st.push(part);
             }
